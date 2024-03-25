@@ -1,10 +1,18 @@
 import React from "react";
 import { View, ImageBackground, Dimensions } from "react-native";
 
-let deviceHeight = Dimensions.get("window").height;
-let deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height;
+const deviceWidth = Dimensions.get("window").width;
 
-const ShowImages = ({ route }) => {
+interface ShowImagesProps {
+  route: {
+    params: {
+      url: any;
+      };
+  };
+}
+
+const ShowImages: React.FC<ShowImagesProps> = ({ route }) => {
   const { url } = route.params;
 
   return (

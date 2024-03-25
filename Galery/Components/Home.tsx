@@ -1,17 +1,15 @@
 import React from "react";
-import {
-  View,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-  Dimensions,
-  ScrollView,
-} from "react-native";
+import { View, TouchableOpacity, Image, StyleSheet, Dimensions, ScrollView } from "react-native";
 import Images from "../Images";
-let deviceHeight = Dimensions.get("window").height;
-let deviceWidth = Dimensions.get("window").width;
 
-const Home = (params) => {
+const deviceHeight = Dimensions.get("window").height;
+const deviceWidth = Dimensions.get("window").width;
+
+interface HomeProps {
+  navigation: any; 
+}
+
+const Home: React.FC<HomeProps> = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -19,27 +17,29 @@ const Home = (params) => {
           <TouchableOpacity
             key={index}
             onPress={() =>
-              params.navigation.navigate("ShowImages", { url: image.url })
+              navigation.navigate("ShowImages", { url: image.url })
             }
           >
-            <Image source={image.url} style={styles.Image} />
+            <Image source={image.url} style={styles.image} />
           </TouchableOpacity>
         ))}
       </View>
     </ScrollView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
   },
-  Image: {
+  image: {
     height: deviceHeight / 3,
     width: deviceWidth / 3 - 6,
     borderRadius: 10,
     margin: 2,
   },
 });
+
 export default Home;

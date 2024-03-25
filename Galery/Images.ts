@@ -1,4 +1,4 @@
-export default Images = [
+const Images = [
   { url: require("./assets/download.jpeg") },
   { url: require("./assets/download (1).jpeg") },
   { url: require("./assets/download (2).jpeg") },
@@ -18,3 +18,5 @@ export default Images = [
   { url: require("./assets/images (8).jpeg") },
   { url: require("./assets/images (9).jpeg") },
 ];
+
+export default Images;
